@@ -48,7 +48,7 @@
 			tabindex = "0"
 
 			alt = "Madrid street"
-			src = "photos/madridstreet.jpg">
+			src = "photos/madridstreet.JPG">
 
 		<img class = "preview"
 			tabindex = "0"
@@ -89,6 +89,17 @@
 			$('#image').html($(this).attr('alt'))
 			});
 			$('.preview').mouseleave(function(){
+				console.log("mouseleft")
+				$("#image").css({"backgroundImage": "url('')"});
+				$('#image').html('Hover over an image below.')
+			});
+			$('.preview').focus(function(){
+				var url = $(this).attr('src')
+				console.log(url)
+    	$("#image").css({"backgroundImage": "url("+url+")"});
+			$('#image').html($(this).attr('alt'))
+			});
+			$('.preview').blur(function(){
 				console.log("mouseleft")
 				$("#image").css({"backgroundImage": "url('')"});
 				$('#image').html('Hover over an image below.')
